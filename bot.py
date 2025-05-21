@@ -49,7 +49,7 @@ async def handle_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await query.answer()
     operatore = query.data
     offerte = OFFERTE.get(operatore, [])
-    testo = f"📢 Offerte attuali di {operatore}:
+    testo = f"📢 Offerte attuali di {operatore}:\n\n"
 
 "
     for offerta in offerte:
