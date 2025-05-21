@@ -67,5 +67,5 @@ if __name__ == "__main__":
     app.run_webhook(
         listen="0.0.0.0",
         port=port,
-        webhook_url=f"https://telegrampromobot-02eo.onrender.com"
+        webhook_url=f"https://telegrampromobot-02eo.onrender.com/"
     )
