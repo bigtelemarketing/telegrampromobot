@@ -1,1 +1,1 @@
-web: python bot.py
+python-telegram-bot[webhooks]==20.3
