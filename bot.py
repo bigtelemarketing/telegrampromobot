@@ -3,7 +3,7 @@ import os
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, CallbackQueryHandler
 
-TOKEN = "INSERISCI_IL_TUO_TOKEN_TELEGRAM"
+TOKEN = "7996855061:AAFz6yh7CDhtRIRkhA0vSXjBJkcTIOBHXrE"
 
 OFFERTE = {
     "WindTre": [
@@ -67,5 +67,5 @@ if __name__ == "__main__":
     app.run_webhook(
         listen="0.0.0.0",
         port=port,
-        webhook_url=f"https://TUO-NOME-RENDER.onrender.com/"
+        webhook_url=f"https://telegrampromobot-02eo.onrender.com/"
     )
