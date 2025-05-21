@@ -1,47 +1,71 @@
-import logging
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import ApplicationBuilder, CommandHandler, CallbackQueryHandler, ContextTypes
 
-# Inserisci direttamente il tuo token
+import os
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes, CallbackQueryHandler
+
 TOKEN = "7996855061:AAFz6yh7CDhtRIRkhA0vSXjBJkcTIOBHXrE"
 
-logging.basicConfig(level=logging.INFO)
-
-PROMOZIONI = {
-    "WindTre": ["WindTre Full 5G - 200GB a 7,99€/mese", "WindTre Young - 100GB a 6,99€/mese"],
-    "TIM": ["TIM Power - 150GB a 9,99€/mese", "TIM Young - 100GB a 7,99€/mese"],
-    "Vodafone": ["Vodafone Special - 100GB a 7,99€/mese", "Vodafone RED - 200GB a 9,99€/mese"],
-    "Fastweb": ["Fastweb Mobile - 150GB a 7,95€/mese", "Fastweb NeXXt - 200GB a 9,95€/mese"],
-    "Optima": ["Optima Comfort - 100GB a 5,95€/mese", "Optima Top - 200GB a 8,95€/mese"],
-    "Iliad": ["Iliad Giga 150 - 150GB a 7,99€/mese", "Iliad Dati - 300GB a 13,99€/mese"],
+OFFERTE = {
+    "WindTre": [
+        "100 GIGA + minuti illimitati a 7,99€",
+        "150 GIGA + minuti e SMS illimitati a 9,99€",
+        "GIGA illimitati con fibra a casa a 19,90€"
+    ],
+    "TIM": [
+        "80 GIGA + minuti illimitati a 8,99€",
+        "200 GIGA + minuti e SMS illimitati a 12,99€"
+    ],
+    "Vodafone": [
+        "100 GIGA + minuti illimitati a 9,99€",
+        "150 GIGA + minuti, SMS e chiamate internazionali a 14,99€"
+    ],
+    "Fastweb": [
+        "90 GIGA + minuti illimitati a 7,95€",
+        "Fibra + Mobile a 19,95€"
+    ],
+    "Optima": [
+        "80 GIGA + minuti a 5,95€",
+        "150 GIGA + minuti + SMS a 8,95€"
+    ],
+    "Iliad": [
+        "150 GIGA + minuti illimitati a 9,99€",
+        "GIGA illimitati con fibra a 24,99€"
+    ]
 }
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    keyboard = [
-        [InlineKeyboardButton(nome, callback_data=nome)]
-        for nome in PROMOZIONI.keys()
+    buttons = [
+        [InlineKeyboardButton(operatore, callback_data=operatore)]
+        for operatore in OFFERTE.keys()
     ]
-    reply_markup = InlineKeyboardMarkup(keyboard)
-    welcome_text = "📱 *Benvenuto!* Seleziona un operatore per vedere le migliori promozioni attuali."
-    await update.message.reply_text(welcome_text, reply_markup=reply_markup, parse_mode="Markdown")
+    reply_markup = InlineKeyboardMarkup(buttons)
+    await update.message.reply_text(
+        "📱 Seleziona un operatore per vedere le offerte migliori e risparmiare:",
+        reply_markup=reply_markup
+    )
 
 async def handle_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
     operatore = query.data
-    offerte = PROMOZIONI.get(operatore, [])
-    testo = f"📢 Offerte attuali di {operatore}:\n\n" + "\n".join(f"🔹 {offerta}" for offerta in offerte)
+    offerte = OFFERTE.get(operatore, [])
+    testo = f"📢 Offerte attuali di {operatore}:
 
+"
+    for offerta in offerte:
+        testo += f"🔹 {offerta}\n"
+    await query.message.reply_text(testo)
 
-testo = f"📢 Offerte attuali di {operatore}:\n\n"
-for offerta in offerte:
-    testo += f"🔹 {offerta}\n"
+if __name__ == "__main__":
+    from telegram.ext import ApplicationBuilder
 
-    await query.edit_message_text(text=testo)
-
-if __name__ == '__main__':
     app = ApplicationBuilder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CallbackQueryHandler(handle_query))
-    print("✅ Bot avviato.")
-    app.run_polling()
+
+    port = int(os.environ.get("PORT", 8443))
+    app.run_webhook(
+        listen="0.0.0.0",
+        port=port,
+        webhook_url=f"https://telegrampromobot-02eo.onrender.com"
+    )
