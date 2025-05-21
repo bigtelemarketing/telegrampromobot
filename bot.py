@@ -3,7 +3,7 @@ from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, CallbackQueryHandler, ContextTypes
 import os
 
-TOKEN = os.getenv("7996855061:AAFz6yh7CDhtRIRkhA0vSXjBJkcTIOBHXrE")
+TOKEN = os.getenv("API:7996855061:AAFz6yh7CDhtRIRkhA0vSXjBJkcTIOBHXrE")
 
 GESTORI = {
     "TIM": "🔥 TIM Power Smart: 100GB + Min/SMS Illimitati a 7,99€/mese\n👉 Attivabile da iliad e virtuali",
