@@ -33,7 +33,10 @@ async def handle_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
     testo = f"📢 Offerte attuali di {operatore}:\n\n" + "\n".join(f"🔹 {offerta}" for offerta in offerte)
 
 
-" + "\n".join(f"🔹 {offerta}" for offerta in offerte)
+testo = f"📢 Offerte attuali di {operatore}:\n\n"
+for offerta in offerte:
+    testo += f"🔹 {offerta}\n"
+
     await query.edit_message_text(text=testo)
 
 if __name__ == '__main__':
