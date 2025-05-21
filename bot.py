@@ -51,7 +51,6 @@ async def handle_query(update: Update, context: ContextTypes.DEFAULT_TYPE):
     offerte = OFFERTE.get(operatore, [])
     testo = f"📢 Offerte attuali di {operatore}:\n\n"
 
-"
     for offerta in offerte:
         testo += f"🔹 {offerta}\n"
     await query.message.reply_text(testo)
