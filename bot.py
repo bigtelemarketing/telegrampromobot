@@ -7,29 +7,29 @@ TOKEN = "7996855061:AAFz6yh7CDhtRIRkhA0vSXjBJkcTIOBHXrE"
 
 OFFERTE = {
     "WindTre": [
-        "100 GIGA + minuti illimitati a 7,99€",
+        "GIGA ILLIMITATI + minuti illimitati a 7,99€",
         "150 GIGA + minuti e SMS illimitati a 9,99€",
         "GIGA illimitati con fibra a casa a 19,90€"
     ],
     "TIM": [
-        "80 GIGA + minuti illimitati a 8,99€",
-        "200 GIGA + minuti e SMS illimitati a 12,99€"
+        "100 GIGA + minuti illimitati a 5,99€",
+        "150 GIGA + minuti e SMS illimitati a 6,99€"
     ],
     "Vodafone": [
         "100 GIGA + minuti illimitati a 9,99€",
         "150 GIGA + minuti, SMS e chiamate internazionali a 14,99€"
     ],
     "Fastweb": [
-        "90 GIGA + minuti illimitati a 7,95€",
-        "Fibra + Mobile a 19,95€"
+        "150 GIGA + minuti illimitati a 8,95€",
+        "Fibra + Mobile a 23,95€"
     ],
     "Optima": [
-        "80 GIGA + minuti a 5,95€",
-        "150 GIGA + minuti + SMS a 8,95€"
+        "100 GIGA + minuti illimitati a 4,95€",
+        "250 GIGA 5G + minuti illimitati + SMS a 6,95€"
     ],
     "Iliad": [
-        "150 GIGA + minuti illimitati a 9,99€",
-        "GIGA illimitati con fibra a 24,99€"
+        "150 GIGA + minuti illimitati a 7,99€",
+        "GIGA illimitati con fibra a 21,99€"
     ]
 }
 
