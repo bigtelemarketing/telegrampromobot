@@ -40,7 +40,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     ]
     reply_markup = InlineKeyboardMarkup(buttons)
     await update.message.reply_text(
-        "📱 Ciao sono il tuo consulente Seleziona un operatore per vedere le offerte migliori e risparmiare, scegli la promo e contattaci subito su www.bigtelemarketing.com ci sono tutti i contatti:",
+        "📱 Ciao sono il tuo consulente Seleziona un operatore per vedere le offerte migliori e risparmiare, scegli la promo e contattaci subito su www.bigtelemarketing.com OPPURE CONTATTACI NEL GRUPPO TELEGRAM https://t.me/+hYatPdFx44ZmNTQ8 ci sono tutti i contatti:",
         reply_markup=reply_markup
     )
 
