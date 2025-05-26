@@ -26,7 +26,7 @@ OFFERTE = {
     "Optima": [
         "100 GIGA + minuti illimitati a 4,95€",
         "250 GIGA 5G + minuti illimitati + SMS a 6,95€"
-    ],"RICHIEDI SIM GRATIS"
+                  "RICHIEDI SIM GRATIS"
     ],
     "Iliad": [
         "150 GIGA + minuti illimitati a 7,99€",
