@@ -10,10 +10,12 @@ OFFERTE = {
         "GIGA ILLIMITATI + minuti illimitati a 7,99€",
         "150 GIGA + minuti e SMS illimitati a 9,99€",
         "GIGA illimitati con fibra a casa a 19,90€"
+                  "RICHIEDI SIM GRATIS"
     ],
     "TIM": [
         "100 GIGA + minuti illimitati a 5,99€",
         "150 GIGA + minuti e SMS illimitati a 6,99€"
+                 "RICHIEDI SIM GRATIS"
     ],
     "Vodafone": [
         "100 GIGA + minuti illimitati a 9,99€",
@@ -22,6 +24,7 @@ OFFERTE = {
     "Fastweb": [
         "150 GIGA + minuti illimitati a 8,95€",
         "Fibra + Mobile a 23,95€"
+                  "RICHIEDI SIM GRATIS"
     ],
     "Optima": [
         "100 GIGA + minuti illimitati a 4,95€",
